@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RP Bloggers - Free Login Page Template With HTML and CSS</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+	<div class="form sign-in-container" id="form_CD" >
+		<form action="#">
+			<h1>Sign in</h1>
+			<div class="campus_list">
+				<div class="title">Lựa chọn cơ sở:</div>
+				<div class="campus_list_container">
+					<a id="ph" onclick="selected('ph', 'FPT Polytechnic Hà Nội')">FPT Polytechnic Hà Nội</a>
+					<a id="pd" onclick="selected('pd', 'FPT Polytechnic Đà Nẵng')">FPT Polytechnic Đà Nẵng</a>
+					<a id="pk" onclick="selected('pk', 'FPT Polytechnic Tây Nguyên')">FPT Polytechnic Tây Nguyên</a>
+				</div>
+			</div>
+			<!-- <input type="email" placeholder="User Email">
+			<input type="password" placeholder="Password"> -->
+			<!-- <a href="https://rpbloggers.com/">Forgot your password?</a> -->
+			<div class="social-container" >
+				<a href="#"><i class="fab fa-google-plus-g google--icon"></i> Đăng nhập</a>
+			</div>
+
+			<!-- <button >Sign In</button> -->
+		</form>
+	</div>
+	<div class="overlay-container switch-container" id="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1 id="campus">Cao đẳng</h1>
+				<p>Chuyển đổi hệ cơ sở.</p>
+				<button class="signup_btn" onclick="switchContainer()">Chuyển đổi</button>
+			</div>
+		</div>
+	</div>
+	<div class="form sign-in-container overlay-container" id="form_PTCD">
+		<form action="#">
+			<h1>Sign in</h1>
+
+			<input type="email" placeholder="User Email">
+			<input type="password" placeholder="Password">
+			<!-- <a href="https://rpbloggers.com/">Forgot your password?</a> -->
+			<div class="social-container" >
+				<a href="#"><i class="fab fa-google-plus-g google--icon"></i> Đăng nhập</a>
+			</div>
+			<!-- <button>Sign In</button> -->
+		</form>
+	</div>
+</div>
+<script>
+let position = 0;
+function switchContainer(){
+	if(position === 0){
+		document.querySelector('.switch-container').style.transform ="translate3d(0%,0,0)";
+		document.getElementById("campus").innerHTML = "Phổ thông cao đẳng";
+		position = 1;
+	}else{
+		document.querySelector('.switch-container').style.transform ="translate3d(-100%,0,0)";
+		document.getElementById("campus").innerHTML = "Cao đẳng"
+		position = 0;
+	}
+}
+function selected(campus_code, campus_name){
+	let selected = document.querySelectorAll('.selected');
+	[].forEach.call(selected, function(el) {
+            el.classList.remove("selected");
+        });
+	document.getElementById(campus_code).classList.add('selected');
+	document.querySelector('.title').innerHTML = "Cơ sở: "+campus_name;
+}
+</script>
+</body>
+</html>
